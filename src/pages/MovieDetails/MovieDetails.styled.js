@@ -2,12 +2,18 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const LinkButton = styled(Link)`
-  display: inline-block;
-  margin-bottom: 5px;
-  border: 1px solid black;
-  border-radius: 5px;
-  text-decoration-line: none;
-  padding: 3px;
+//   display: inline-block;
+//   margin-bottom: 5px;
+//   border: 1px solid black;
+//   border-radius: 5px;
+//   text-decoration-line: none;
+//   padding: 3px;
+font-size: 14px;
+padding: 3px 5px 3px 40px;
+text-decoration: none;
+font-weight: 500;
+background-color: rgb(192, 182, 182);
+border-radius: 4px;
 `;
 
 export const MovieInformation = styled.div`
