@@ -6,11 +6,23 @@ export const SearchForm = styled.form`
 `;
 
 export const SearchInput = styled.input`
-  font-size: 26px;
-  width: calc(100% - 120px);
+padding: 4px;
+width: 400px;
+border-radius: 8px;
+font-size: 16px;
+&:focus {
+  background-color: yellow;
+  color: blue;
+}
 `;
 
 export const SubmitButton = styled.button`
-  font-size: 24px;
-  width: 120px;
+padding: 4px 8px;
+border-radius: 8px;
+font-size: 16px;
+&:hover,
+&:focus {
+  color: blue;
+  background-color: yellow;
+}
 `;

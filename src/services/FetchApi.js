@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = '35e4029009d2b1b2fd3abd64436fbdbc9';
+const API_KEY = 'c706b9e49acca8149f8445498f846084';
 const API_PATH = 'https://api.themoviedb.org/3';
 const MEDIA_TYPE = 'movie';
 const TIME_WINDOW = 'week';
