@@ -1,5 +1,5 @@
 import {Loader} from 'components/Loader/Loader';
-import { Error } from 'components/Error';
+import Error  from 'components/Error/Error';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReview } from 'services/FetchApi';

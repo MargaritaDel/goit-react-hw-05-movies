@@ -1,9 +1,9 @@
 import {Loader }from 'components/Loader/Loader';
-import { Error } from 'components/Error';
+import  Error  from 'components/Error/Error';
 import { useEffect, useState } from 'react';
 import { fetchTrendMovies } from 'services/FetchApi';
 import MoviesList from 'components/MoviesList/MoviesList';
-import {HomeTitle} from './Home/Home.styled'
+import {HomeTitle} from './Home.styled'
 
 
 const Home = () => {

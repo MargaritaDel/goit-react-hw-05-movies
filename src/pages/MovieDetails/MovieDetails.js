@@ -1,6 +1,7 @@
 import {Loader} from 'components/Loader/Loader';
-import { Error } from 'components/Error';
-import { Suspense, useRef } from 'react';
+import Error from 'components/Error/Error';
+import NotFound from '../../components/NotFound/NotFound';
+import { Suspense} from 'react';
 import { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovie } from 'services/FetchApi';
@@ -22,7 +23,11 @@ const MovieDetails = () => {
   const [error, setError] = useState('');
 
   const location = useLocation();
-  const backLinkLocation = useRef(location.state?.from ?? `/movies`);
+  let locationValue = location.state;
+    if (location.state) {
+      locationValue = location.state.from;
+    }
+    const [from, setFrom] = useState(location.state?.from ?? "/");
 
   useEffect(() => {
     async function uploadMovie(movieId) {
@@ -51,44 +56,42 @@ const MovieDetails = () => {
     overview,
     genres,
   } = movie;
-  const year = new Date(release_date).getFullYear();
-  const userScore = Math.round(vote_average * 10);
+
+  const year = release_date ? new Date(release_date).getFullYear() : '';
+  const userScore = vote_average ? Math.round(vote_average * 10) : '';
 
   return (
     <>
-      <LinkButton to={backLinkLocation.current}>
-        <TiArrowBackOutline />
-        Go back
-      </LinkButton>
+     <LinkButton to={from} setFrom={setFrom} locationValue={locationValue}><TiArrowBackOutline/><GiTargetPoster />Go back</LinkButton>
       {isLoading && <Loader />}
-      {error && <Error>{error} There are not movies</Error>}
-      <MovieInformation>
-        {poster_path ? (
-          <MovieImg
-            src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-            alt={original_title}
-            width="300"
-          />
-        ) : (
-          <GiTargetPoster
-            style={{ display: 'block', width: '300px' }}
-            color="rgb(60 80 60 )"
-            size={500}
-          />
-        )}
-        <MovieInformationText>
-          <h1>
-            {original_title} ({year})
-          </h1>
-          <p>User score: {userScore}%</p>
-          <h2>Overview</h2>
-          <p>{overview}</p>
-          <h3>Genres</h3>
-          <GenresList>
-            {genres && genres.map(({ name, id }) => <li key={id}>{name}</li>)}
-          </GenresList>
-        </MovieInformationText>
-      </MovieInformation>
+      {error ? (
+        <NotFound>{error} Sorry, we don't have that movie</NotFound>
+      ) : (
+        <MovieInformation>
+          {poster_path ? (
+            <MovieImg
+              src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
+              alt={original_title}
+              width="300"
+            />
+          ) : (
+            <p>Not found</p>
+          )}
+          <MovieInformationText>
+            <h1>
+              {original_title} {year ? `(${year})` : ''}
+            </h1>
+            <p>User score: {userScore ? `${userScore}%` : ''}</p>
+            <h2>Overview</h2>
+            <p>{overview}</p>
+            <h3>Genres</h3>
+            <GenresList>
+              {genres &&
+                genres.map(({ name, id }) => <li key={id}>{name}</li>)}
+            </GenresList>
+          </MovieInformationText>
+        </MovieInformation>
+      )}
       <MovieMoreInformation>
         <p>Additional information</p>
         <ul>
@@ -107,4 +110,3 @@ const MovieDetails = () => {
   );
 };
 
-export default MovieDetails;

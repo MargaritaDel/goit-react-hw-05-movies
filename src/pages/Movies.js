@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchSearch } from 'services/FetchApi';
-import { Error } from 'components/Error';
+import  Error  from 'components/Error/Error';
 import {Loader} from 'components/Loader/Loader';
 import SearchFormSubmit from 'components/SearchForm/SearchForm';
 import MoviesList from 'components/MoviesList/MoviesList';
