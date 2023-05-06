@@ -22,7 +22,7 @@ const NotFound = () => {
         </PageNotFoundText>
       ) : (
         <PageNotFoundText>
-          Sorry, the page you are looking for does not exist.
+          Sorry, the movie  you are looking for does not exist.
         </PageNotFoundText>
       )}
     </div>
