@@ -5,6 +5,7 @@ import {Loader} from 'components/Loader/Loader';
 import SearchFormSubmit from 'components/SearchForm/SearchForm';
 import MoviesList from 'components/MoviesList/MoviesList';
 import { useSearchParams } from 'react-router-dom';
+import {TrendingMoviesList} from './Home/Home.styled'
 
 const Movies = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -43,12 +44,12 @@ const Movies = () => {
   };
 
     return (
-        <div>
+        <TrendingMoviesList>
         {error && <Error>{error} There are not movies</Error>}
       <SearchFormSubmit onSubmit={onSubmit} query={query} />
       {isLoading && <Loader />}
       <MoviesList movies={movies} />
-      </div>
+      </TrendingMoviesList>
     );
   };
 export default Movies;

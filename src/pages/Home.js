@@ -3,6 +3,8 @@ import { Error } from 'components/Error';
 import { useEffect, useState } from 'react';
 import { fetchTrendMovies } from 'services/FetchApi';
 import MoviesList from 'components/MoviesList/MoviesList';
+import {HomeTitle} from './Home/Home.styled'
+
 
 const Home = () => {
   const [trendMovies, setTrendMovies] = useState([]);
@@ -31,10 +33,10 @@ const Home = () => {
 
   return (
     <>
-      <h1>Trending today</h1>
+      <HomeTitle>Trending today</HomeTitle>
       {isLoading && <Loader />}
       {error && <Error>{error} There are not movies</Error>}
-      <MoviesList movies={trendMovies} />
+      <MoviesList movies={trendMovies}  /> 
     </>
   );
 };

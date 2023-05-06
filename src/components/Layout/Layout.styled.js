@@ -9,6 +9,7 @@ export const Header = styled.header`
 
 export const Main = styled.main`
   padding: 20px;
+  color: white;
 `;
 
 export const Nav = styled.nav`
@@ -18,6 +19,6 @@ export const Nav = styled.nav`
     text-decoration-line: none;
   }
   & .active {
-    color: red;
+    color:yellow;
   }
 `;
