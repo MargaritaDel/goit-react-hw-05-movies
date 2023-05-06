@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { fetchSearch } from 'services/FetchApi';
-import  Error  from 'components/Error/Error';
+// import  Error  from 'components/Error/Error';
 import {Loader} from 'components/Loader/Loader';
 import SearchFormSubmit from 'components/SearchForm/SearchForm';
 import MoviesList from 'components/MoviesList/MoviesList';
 import { useSearchParams } from 'react-router-dom';
 import {TrendingMoviesList} from './Home/Home.styled'
+import NotFound from 'components/NotFound/NotFound';
 
 const Movies = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -45,7 +46,7 @@ const Movies = () => {
 
     return (
         <TrendingMoviesList>
-        {error && <Error>{error} There are not movies</Error>}
+        {error && <NotFound>{error} There are not movies</NotFound>}
       <SearchFormSubmit onSubmit={onSubmit} query={query} />
       {isLoading && <Loader />}
       <MoviesList movies={movies} />

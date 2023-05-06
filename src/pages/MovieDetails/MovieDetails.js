@@ -14,7 +14,7 @@ import {
   MovieMoreInformation,
 } from './MovieDetails.styled';
 import { TiArrowBackOutline } from 'react-icons/ti';
-import { GiTargetPoster } from 'react-icons/gi';
+// import { GiTargetPoster } from 'react-icons/gi';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -62,7 +62,11 @@ const MovieDetails = () => {
 
   return (
     <>
-     <LinkButton to={from} setFrom={setFrom} locationValue={locationValue}><TiArrowBackOutline/><GiTargetPoster />Go back</LinkButton>
+    {poster_path && (
+  <LinkButton to={from} setFrom={setFrom} locationValue={locationValue}>
+    <TiArrowBackOutline />Go back
+  </LinkButton>
+)}
       {isLoading && <Loader />}
       {error ? (
         <NotFound>{error} Sorry, we don't have that movie</NotFound>
@@ -92,6 +96,13 @@ const MovieDetails = () => {
           </MovieInformationText>
         </MovieInformation>
       )}
+      {error ? (
+  <p> </p>
+) : (
+  <>
+    <MovieInformation>
+    </MovieInformation>
+    {movie && (
       <MovieMoreInformation>
         <p>Additional information</p>
         <ul>
@@ -103,9 +114,12 @@ const MovieDetails = () => {
           </li>
         </ul>
       </MovieMoreInformation>
-      <Suspense>
-        <Outlet />
-      </Suspense>
+    )}
+    <Suspense>
+      <Outlet />
+    </Suspense>
+  </>
+)}
     </>
   );
 };
