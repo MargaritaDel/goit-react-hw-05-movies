@@ -3,6 +3,7 @@ import { Error } from 'components/Error';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReview } from 'services/FetchApi';
+import { ReviewList, ReviewListItem, Author} from '../Reviews/Reviews.styled'
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -34,14 +35,14 @@ const Reviews = () => {
     <div>
       {isLoading && <Loader />}
       {error && <Error>{error} There are not movies</Error>}
-      <ul>
+      <ReviewList>
         {reviews.map(({ id, author, content }) => (
-          <li key={id}>
-            <p>{author}</p>
+          <ReviewListItem key={id}>
+            <Author>{author}</Author>
             <p>{content}</p>
-          </li>
+          </ReviewListItem>
         ))}
-      </ul>
+      </ReviewList>
     </div>
   );
 };

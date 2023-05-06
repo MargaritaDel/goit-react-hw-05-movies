@@ -2,18 +2,22 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const LinkButton = styled(Link)`
-//   display: inline-block;
-//   margin-bottom: 5px;
-//   border: 1px solid black;
-//   border-radius: 5px;
-//   text-decoration-line: none;
-//   padding: 3px;
-font-size: 14px;
-padding: 3px 5px 3px 40px;
-text-decoration: none;
-font-weight: 500;
-background-color: rgb(192, 182, 182);
-border-radius: 4px;
+  display: flex;
+  width: 300px;
+  height: 100px:
+  align-items: center;
+  font-size: 20px;
+  border: 1px solid #0d57aa;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  text-align: center;
+  background-color: #b5d1f2;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  &:hover,
+  &:focus {
+    background-color: yellow;
+    color: blue;
+
 `;
 
 export const MovieInformation = styled.div`

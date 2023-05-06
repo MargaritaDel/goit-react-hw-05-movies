@@ -16,7 +16,7 @@ const Home = () => {
         const trends = await fetchTrendMovies();
 
         if (!trends.total_results) {
-          throw new Error('No data');
+          throw new Error('Sorry, there are no trending movies at the moment. Please, try later');
         } else {
           setTrendMovies(trends.results);
         }
