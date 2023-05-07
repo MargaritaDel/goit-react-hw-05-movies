@@ -3,28 +3,30 @@ import styled from 'styled-components';
 
 export const LinkButton = styled(Link)`
   display: flex;
-  width: 300px;
-  height: 100px:
+  width: 150px;
+  height: 20px:
   align-items: center;
   font-size: 20px;
   border: 1px solid #0d57aa;
   border-radius: 6px;
   margin-bottom: 8px;
   text-align: center;
-  background-color: #b5d1f2;
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  justify-content:center;
+  background-color: white;
+  color: rgb(0, 31, 51);
+  box-shadow: 2px 1px 9px 0px #fff;
   &:hover,
   &:focus {
     background-color: yellow;
-    color: blue;
+    color: rgb(0, 31, 51);
 
 `;
 
 export const MovieInformation = styled.div`
   @media screen and (min-width: 980px) {
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
+    flex-wrap: wrap;
   }
 `;
 

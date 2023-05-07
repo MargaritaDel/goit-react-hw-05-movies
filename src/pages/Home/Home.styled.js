@@ -9,12 +9,12 @@ margin: 0;
 
 export const TrendingMoviesList = styled.ul`
 display: flex;
-
+justify-items: center;
 padding: 0;
 padding-bottom: 30px;
 margin: 0;
-list-style: none;
-justify-items: center;
 gap: 20px;
+list-style: none;
+
 `;
 

@@ -13,7 +13,7 @@ export const ReviewListItem = styled.li`
   padding-bottom: 10px;
   border-bottom: 1px solid grey;
   border-radius: 8px;
-  box-shadow: 2px 1px 9px 0px #000000;
+  box-shadow: 2px 1px 9px 0px #fff;
 `;
 
 export const Author = styled.h4`

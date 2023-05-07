@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { PageNotFound, PageNotFoundText } from './NotFound.styled';
+import {useLocation } from 'react-router-dom';
+import { PageNotFound, PageNotFoundText, LinkReturn} from './NotFound.styled';
 import { TiArrowBackOutline } from 'react-icons/ti';
 
 const NotFound = () => {
@@ -11,9 +11,9 @@ const NotFound = () => {
   return (
     <div>
       {showBackButton && (
-        <Link to="/" onClick={() => setShowBackButton(false)}>
+        <LinkReturn to="/" onClick={() => setShowBackButton(false)}>
           <TiArrowBackOutline/>Return
-        </Link>
+        </LinkReturn>
       )}
       <PageNotFound>Oops! Not Found</PageNotFound>
       {location.state?.movieNotFound ? (

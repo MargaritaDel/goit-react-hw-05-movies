@@ -3,7 +3,7 @@ import Error from 'components/Error/Error';
 import NotFound from '../../components/NotFound/NotFound';
 import { Suspense} from 'react';
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovie } from 'services/FetchApi';
 import {
   GenresList,
@@ -64,7 +64,7 @@ const MovieDetails = () => {
     <>
     {poster_path && (
   <LinkButton to={from} setFrom={setFrom} locationValue={locationValue}>
-    <TiArrowBackOutline />Go back
+    <TiArrowBackOutline />  Go back
   </LinkButton>
 )}
       {isLoading && <Loader />}
@@ -107,10 +107,10 @@ const MovieDetails = () => {
         <p>Additional information</p>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <LinkButton to="cast">Cast</LinkButton>
           </li>
           <li>
-            <Link to="review">Review</Link>
+            <LinkButton to="review">Review</LinkButton>
           </li>
         </ul>
       </MovieMoreInformation>
